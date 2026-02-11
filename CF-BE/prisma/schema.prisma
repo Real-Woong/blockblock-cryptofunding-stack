@@ -1,0 +1,85 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Project { 
+  id String @id @default(uuid())
+
+  // creator
+  creatorWalletAddress String?
+
+  // core info
+  title       String
+  category    String @default("Others")
+  oneLiner    String @default("")
+  description String @default("")
+  status      String @default("live")
+
+  // images (must be http(s) or /uploads/...; never blob:)
+  thumbnailUrl String @default("")
+  coverUrl     String @default("")
+
+  // fundraising
+  goalAmount   Int
+  durationDays Int
+  raisedAmount Int @default(0)
+  supporters   Int @default(0)
+  daysLeft     Int @default(0)
+
+  // timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // relations
+  rewards  Reward[]
+  fundings Funding[]
+
+  @@index([createdAt])
+}
+
+model Reward {
+  id String @id @default(uuid())
+
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  amount      Int    @default(0)
+  title       String @default("")
+  description String @default("")
+
+  createdAt DateTime @default(now())
+
+  @@index([projectId])
+}
+
+model Funding {
+  id String @id @default(uuid())
+
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  fromWallet String
+  amount     Int
+  token      String   @default("SUI")
+  message    String   @default("")
+  txHash     String?
+  createdAt  DateTime @default(now())
+
+  @@index([projectId])
+  @@index([fromWallet])
+}
+
+model User {
+  walletAddress String @id
+  displayName   String @default("My Profile")
+  description   String @default("Manage your projects and contributions")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([updatedAt])
+}

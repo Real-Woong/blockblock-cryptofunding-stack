@@ -1,0 +1,64 @@
+########## Secrets / Keys ##########
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+########## OS / Editor ##########
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+########## Node / JS ##########
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# builds
+dist/
+build/
+.next/
+out/
+coverage/
+.turbo/
+.cache/
+.vercel/
+
+# TypeScript
+*.tsbuildinfo
+
+########## Frontend (Vite/React) ##########
+CF-FE/.env
+CF-FE/.env.*
+!CF-FE/.env.example
+
+########## Backend uploads (runtime artifacts) ##########
+uploads/
+# 만약 uploads 폴더는 남기고 싶으면 아래처럼 운영:
+uploads/*
+!uploads/.gitkeep
+
+########## Archives / Backups ##########
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.bak
+
+#pem
+_local_secrets/
+
+#backup zip files
+_local_backups/
+
+#command I used
+Command-Used.txt
+Command-Used.txt
+Command-Used.txt
+Command-Used.txt

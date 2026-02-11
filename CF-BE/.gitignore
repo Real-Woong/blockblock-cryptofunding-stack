@@ -1,0 +1,59 @@
+# ----------------------------
+# Node / Package managers
+# ----------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# ----------------------------
+# Env & secrets
+# ----------------------------
+.env
+.env.*
+*.pem
+*.key
+
+# ----------------------------
+# Build outputs
+# ----------------------------
+dist/
+build/
+out/
+coverage/
+
+# ----------------------------
+# OS / Editor
+# ----------------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ----------------------------
+# Prisma / DB (local)
+# ----------------------------
+prisma/dev.db
+prisma/dev.db-journal
+*.db
+*.db-journal
+
+# ----------------------------
+# Uploads (local only)
+# ----------------------------
+uploads/*
+!uploads/.gitkeep
+
+# ----------------------------
+# Temp / Logs
+# ----------------------------
+tmp/
+logs/
+*.log
+
+# ----------------------------
+# Cache
+# ----------------------------
+.cache/

@@ -1,0 +1,14 @@
+### health
+GET http://localhost:4000/api/health
+
+### list projects
+GET http://localhost:4000/api/projects
+
+### create project
+POST http://localhost:4000/api/projects
+Content-Type: application/json
+
+{
+  "title": "My Project",
+  "goalAmount": 5000
+}

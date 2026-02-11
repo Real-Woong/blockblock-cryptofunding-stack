@@ -1,0 +1,23 @@
+ExplorePage.tsx
+	•	프로젝트 목록 + 필터 + 정렬
+	•	GET /api/projects?status=&category=&sort=&page=&limit=
+
+ProjectDetailPage.tsx
+	•	프로젝트 상세
+	•	GET /api/projects/:projectId
+
+FundingFullPage.tsx
+	•	특정 프로젝트의 후원 집계/내역/후원 생성
+	•	GET /api/projects/:projectId/funding
+	•	POST /api/projects/:projectId/funding
+
+StartProjectWizard.tsx
+	•	프로젝트 생성/수정 (초안 방식이면 drafts 추가)
+	•	POST /api/projects
+	•	PUT /api/projects/:projectId
+	•	(선호) POST /api/projects/drafts, PUT /api/projects/drafts/:draftId
+
+UserPage.tsx (진웅이 이미 호출 중이던 것)
+	•	GET /api/users/:walletAddress/stats
+	•	GET /api/users/:walletAddress/projects?type=created|funded
+	•	GET /api/users/:walletAddress/transactions
